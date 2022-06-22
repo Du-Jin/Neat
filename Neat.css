@@ -1,0 +1,326 @@
+/*
+  name: Neat
+  description: 一个简洁、希望视觉上专注内容的Obsidian主题。
+  author: DuJin
+  email: du.jin.work@outlook.com
+*/
+
+:root {
+  /* font family */
+  --font-family-default: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", Roboto, "Microsoft YaHei", sans-serif;
+  --font-family--code: "Fira Code", roboto, -apple-system, "Microsoft YaHei", sans-serif;
+
+  --font-size-default: 16px;
+  --font-size-h1: 2rem;
+  --font-weight-h1: 300;
+  --font-size-h2: 1.5rem;
+  --font-weight-h2: 700;
+  --font-size-h3: 1.25rem;
+  --font-weight-h3: 700;
+  --font-size-h4: 0.9rem;
+  --font-weight-h4: 700;
+  --font-style-h4: italic;
+
+  --line-height-editor-content: 1.5; /* 编辑区域正文行距 */
+
+  --radius-codeblock: .5rem;
+
+}
+
+.theme-light {
+  --color-editor-background: white;
+  --color-editor-text: hsl(0, 0%, 0%);
+  --color-code-background: #f6f8fa;
+  --color-h2-line: hsl(220, 20%, 90%);
+  --color-h3-border: hsl(220, 100%, 50%);
+  --color-quoteblock-background: hsl(220, 50%, 99%);
+  --color-quoteblock-border: hsl(220, 50%, 70%);
+  --color-inline-code: hsl(40, 100%, 40%);
+  --color-link: hsl(220, 100%, 50%);
+  --color-highlight-background: hsl(50, 100%, 50%);
+  --color-img-border: hsl(220, 10%, 90%);
+
+  /* 文档正文区域上方header（容纳当前打开文档名等） */
+  --color-editor-header-background: white;
+  --color-editor-header-border: hsl(220, 20%, 90%);
+
+  /* 最左侧和最右侧side dock区域（容纳设置、知识图库等ui组件） */
+  --color-sidedock-background: hsl(210, 45%, 90%);
+
+  /* 左侧和右侧文件树、大纲区域 */
+  --color-filetree-background: hsl(210, 45%, 96%);
+  --color-filetree-title-default: hsl(210, 10%, 50%);
+  --color-filetree-header-tab-border: hsl(210, 20%, 75%);
+  --color-filetree-header-tab-active: hsl(210, 100%, 50%);
+  --color-filetree-header-tab-hover: hsl(210, 100%, 70%);
+  --color-filetree-navitem-hover-background: hsl(210, 50%, 90%);
+  --color-filetree-navitem-active-background: var(--color-filetree-background);
+  --color-filetree-navitem-active-title: hsl(210, 100%, 50%);
+  --color-treeitem-outer-background: var(--color-filetree-background);
+  --color-treeitem-outer-title: var(--color-filetree-title-default);
+
+  /* 顶部titlebar */
+  --color-titlebar-background: hsl(210, 45%, 90%);
+  --color-titlebar-title: hsl(0, 0%, 10%);
+
+  /* 底部statusbar */
+  --color-statusbar-background: hsl(210, 45%, 90%);
+  --color-statusbar-title: hsl(210, 45%, 20%);
+
+  /* 滚动条 */
+  --color-scrollbar-thumb: hsl(210, 20%, 75%);
+}
+
+/* TODO：完成暗黑模式的适配 */
+/* .theme-dark {
+
+} */
+
+html {
+  font-size: var(--font-family-default) !important;
+}
+
+body {
+  font-family: var(--font-family-default) !important;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.image-embed {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.mod-vertical, .cm-editor {
+  background: var(--color-editor-background) !important;
+  color: var(--color-editor-text);
+  border: 0 !important;
+}
+
+.cm-inline-code, .HyperMD-codeblock {
+  font-family: var(--font-family--code) !important;
+}
+
+.ͼ1 .cm-scroller {
+  line-height: var(--line-height-editor-content);
+}
+
+
+.markdown-preview-view h2 {
+  margin: .67em 0;
+}
+
+.HyperMD-header-1 {
+  text-align: center;
+}
+
+.cm-header-1 {
+  font-size: var(--font-size-h1) !important;
+  font-weight: var(--font-weight-h1) !important;
+  padding-bottom: .5em;
+}
+
+.HyperMD-header-2 {
+  padding: 0 !important;
+  border-bottom: 2px solid var(--color-h2-line);
+  margin-bottom: .5em !important;
+  margin-top: 1em !important;
+}
+.cm-header-2 {
+  font-size: var(--font-size-h2) !important;
+  font-weight: var(--font-weight-h2) !important;
+}
+
+.HyperMD-header-3 {
+  border-left: 4px solid !important;
+  border-image: linear-gradient(to bottom, var(--color-editor-background), var(--color-editor-background) 15%, var(--color-h3-border) 15%, var(--color-h3-border) 75%, var(--color-editor-background) 75%, var(--color-editor-background) 100%) 1 1;
+  padding-left: .3em !important;
+}
+.cm-header-3 {
+  font-size: var(--font-size-h3) !important;
+  font-weight: var(--font-weight-h3) !important;
+}
+
+.cm-header-4 {
+  font-size: var(--font-size-h4) !important;
+  font-weight: var(--font-weight-h4) !important;
+  font-style: var(--font-style-h4) !important;
+}
+
+.HyperMD-codeblock {
+  background: var(--color-code-background) !important;
+  padding-left: 1em !important;
+}
+
+.HyperMD-codeblock-begin {
+  border-top-left-radius: var(--radius-codeblock) !important;
+  border-top-right-radius: var(--radius-codeblock) !important;
+  margin-top: .5em !important;
+}
+.HyperMD-codeblock-end {
+  border-bottom-left-radius: var(--radius-codeblock) !important;
+  border-bottom-right-radius: var(--radius-codeblock) !important;
+  margin-bottom: .5em !important;
+}
+
+.cm-inline-code {
+  color: var(--color-inline-code) !important;
+  background: var(--color-code-background) !important;
+  padding-left: .25em !important;
+  padding-right: .25em !important;
+  margin-left: .25em !important;
+  margin-right: .25em !important;
+  border-radius: .25em !important;
+}
+
+.HyperMD-quote {
+  background: var(--color-quoteblock-background) !important;
+  border-left: 2px solid var(--color-quoteblock-border) !important;
+  padding: .5em !important;
+}
+
+.cm-link {
+  color: var(--color-link) !important;
+}
+
+
+.markdown-source-view.mod-cm6 .cm-content > .HyperMD-header {
+  margin: .5em 0 !important;
+}
+
+.cm-highlight {
+  background: var(--color-highlight-background) !important;
+}
+
+.theme-light img {
+  border-radius: .5em !important;
+  border: 2px solid var(--color-img-border) !important;
+}
+
+
+/* 笔记区域正文上方header部分（容纳当前文档文件名等） */
+.workspace-leaf-content .view-header {
+  background: var(--color-editor-header-background) !important;
+  border-top: 0 !important;
+  border-bottom: 1px solid var(--color-editor-header-border) !important;
+}
+.workspace-leaf-content .view-header-icon {
+  background: var(--color-editor-header-background) !important;
+  top: 0 !important;
+}
+.workspace-leaf-content .view-header-title-container {
+  background: var(--color-editor-header-background) !important;
+}
+.workspace-leaf-content .view-header-title-container .view-header-title {
+  font-weight: 700 !important;
+  font-size: .9rem;
+}
+.workspace-leaf-content .view-header-title-container::after {
+  background: var(--color-editor-header-background) !important;
+}
+.workspace-leaf-content .view-actions {
+  background: var(--color-editor-header-background) !important;
+}
+
+
+/* 最左侧和最右侧side dock区域的设置（容纳设置、知识图谱等组件） */
+.side-dock-ribbon{
+  background: var(--color-sidedock-background) !important;
+  border: 0 !important;
+}
+
+/* 左侧和右侧文件树、大纲区域 */
+.workspace-tabs {
+  background: var(--color-filetree-background) !important;
+
+}
+.workspace-tab-container-before, .workspace-tab-container-after {
+  background: transparent !important;
+}
+.workspace-tabs .workspace-leaf {
+  background: var(--color-filetree-background) !important;
+}
+
+.workspace-tabs .workspace-tab-header-container,.workspace-tab-header {
+  background: var(--color-filetree-background) !important;
+}
+.workspace-tabs .workspace-tab-header-inner {
+  background: var(--color-filetree-background) !important;
+}
+
+.workspace-tabs .workspace-tab-container-inner .workspace-tab-header {
+  border-left: 2px solid !important;
+  border-image: linear-gradient(to bottom, var(--color-filetree-background) 20%, var(--color-filetree-header-tab-border) 20%, var(--color-filetree-header-tab-border) 80%, var(--color-filetree-background) 80%) 1 1 !important;
+}
+.workspace-tabs .workspace-tab-container-inner .workspace-tab-header:first-child {
+  border-left: 0 !important;
+}
+.workspace-tabs .workspace-tab-container-inner .is-after-active .workspace-tab-header-inner {
+  border-left: 0 !important;
+}
+.workspace-tabs .workspace-tab-container-inner .is-active .workspace-tab-header-inner {
+  border: 0 !important;
+  color: var(--color-filetree-header-tab-active) !important;
+}
+.workspace-tabs .workspace-tab-container-inner .workspace-tab-header:hover {
+  color: var(--color-filetree-header-tab-hover) !important;
+}
+.workspace-tabs .nav-folder-title,.nav-file-title,.tree-item-inner {
+  color: var(--color-filetree-title-default) !important;
+}
+.workspace-tabs .nav-folder-title:hover,.nav-file-title:hover,.tree-item-self:hover{
+  background: var(--color-filetree-navitem-hover-background) !important;
+}
+.workspace-tabs .nav-file .is-active {
+  background: var(--color-filetree-navitem-active-background) !important;
+  color: var(--color-filetree-navitem-active-title) !important;
+}
+.workspace-tabs .nav-folder .is-active {
+  background: var(--color-filetree-navitem-active-background) !important;
+  color: var(--color-filetree-navitem-active-title) !important;
+}
+
+.workspace-tabs .tree-item-flair-outer,.tree-item-flair {
+  background: var(--color-treeitem-outer-background) !important;
+  color: var(--color-treeitem-outer-title) !important;
+}
+
+
+/* 顶部titlebar区域 */
+.titlebar {
+  background: var(--color-titlebar-background) !important;
+}
+.titlebar .titlebar-left {
+  background: var(--color-titlebar-background) !important;
+}
+.titlebar .titlebar-left {
+  background: var(--color-titlebar-background) !important;
+}
+.titlebar .titlebar-button-container {
+  background: var(--color-titlebar-background) !important;
+}
+.titlebar .titlebar-button {
+  color: var(--color-titlebar-title)!important;
+}
+
+
+/* 底部statusbar */
+.status-bar {
+  background: var(--color-statusbar-background) !important;
+  border: 0 !important;
+  font-size: .78rem !important;
+  color: var(--color-statusbar-title) !important;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 6px !important;
+  height:6px !important;
+  background: transparent !important;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar-thumb) !important;
+}
+
+.workspace-leaf-resize-handle {
+  background: transparent !important;
+}
